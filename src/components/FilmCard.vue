@@ -1,5 +1,6 @@
 <template>
   <div class="card-container">
+      <img :src="`https://image.tmdb.org/t/p/w342${objCard.poster}`" :alt="objCard.title">
       <div class="title">
           <b>Title:</b>
           <span>{{ objCard.title }}</span>

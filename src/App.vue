@@ -26,6 +26,7 @@ export default {
       this.films = arrFilms.map(film => {
         return {
           id: film.id,
+          poster: film.poster_path,
           title: film.title,
           originalTitle: film.original_title,
           lang: film.original_language,
@@ -34,13 +35,14 @@ export default {
       });
     },
     getSeries(arrSeries) {
-      this.series = arrSeries.map(film => {
+      this.series = arrSeries.map(serie => {
         return {
-          id: film.id,
-          title: film.name,
-          originalTitle: film.original_name,
-          lang: film.original_language,
-          rating: film.vote_average,
+          id: serie.id,
+          poster: serie.poster_path,
+          title: serie.name,
+          originalTitle: serie.original_name,
+          lang: serie.original_language,
+          rating: serie.vote_average,
         }
       });
     }
