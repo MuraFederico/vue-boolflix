@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import FilmCard from './FilmCard.vue'
+import FilmCard from './FilmCard.vue';
 
 export default {
     name: 'MainNotflix',

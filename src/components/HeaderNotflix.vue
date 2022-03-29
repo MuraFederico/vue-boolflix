@@ -2,15 +2,33 @@
   <header>
       <h1>BOOLFLIX</h1>
       <nav>
-          <input type="text" placeholder="Search by Name">
-          <button>Cerca</button>
+          <input v-model="strSearch" type="text" placeholder="Search by Name">
+          <button @click="getFilms">Cerca</button>
       </nav>
   </header>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'HeaderNotflix',
+    data() {
+        return {
+            strSearch: '',
+        };
+    },
+    methods: {
+        formatStr(str) {
+            return str.replaceAll(' ', '+')
+        },
+        getFilms() {
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1814a5181699a3f32f15c63dc0665bd9&query=${this.formatStr(this.strSearch)}`)
+            .then(res => {
+                console.log(res.data)
+            })
+        },
+    },
 }
 </script>
 
