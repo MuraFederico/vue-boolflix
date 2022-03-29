@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style>
-
+    main {
+        height: 90vh;
+        background-color: darkgray;
+    }
 </style>
