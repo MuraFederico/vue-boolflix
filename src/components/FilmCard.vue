@@ -16,7 +16,7 @@
           <b>Language:</b>
           <span>{{ objCard.lang }}</span>
       </div> -->
-     <lang-flag :iso="objCard.lang" squared="false" />
+     <lang-flag :iso="objCard.lang"/>
   </div>
 </template>
 

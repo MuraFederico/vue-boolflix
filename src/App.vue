@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-notflix @emitFilms="getFilms" @emitSeries="getSeries"/>
-    <main-notflix :arrFilms="films"/>
+    <main-notflix :arrFilms="films" :arrSeries="series"/>
   </div>
 </template>
 
