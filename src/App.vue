@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-notflix />
-    <main-notflix />
+    <header-notflix @emitFilms="getFilms"/>
+    <main-notflix :arrFilms="films"/>
   </div>
 </template>
 
@@ -14,6 +14,25 @@ export default {
   components: {
     HeaderNotflix,
     MainNotflix,
+  },
+  data() {
+    return {
+      films: [],
+    }
+  },
+  methods: {
+    getFilms(arrFilms) {
+      this.films = arrFilms.map(film => {
+        return {
+          id: film.id,
+          title: film.title,
+          originalTitle: film.original_title,
+          lang: film.original_language,
+          rating: film.vote_average,
+        }
+      });
+      console.log(arrFilms)
+    }
   },
 }
 </script>

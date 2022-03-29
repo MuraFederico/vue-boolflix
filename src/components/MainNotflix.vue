@@ -1,6 +1,8 @@
 <template>
   <main>
-      <film-card />
+      <film-card v-for="film in arrFilms" :key="film.id"
+      :film="film"
+      />
   </main>
 </template>
 
@@ -11,6 +13,9 @@ export default {
     name: 'MainNotflix',
     components: {
         FilmCard,
+    },
+    props: {
+        arrFilms: Array,
     }
 }
 </script>
