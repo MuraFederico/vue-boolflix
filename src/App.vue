@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header-notflix @emitFilms="getFilms"/>
+    <header-notflix @emitFilms="getFilms" @emitSeries="getSeries"/>
     <main-notflix :arrFilms="films"/>
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
   data() {
     return {
       films: [],
+      series: [],
     }
   },
   methods: {
@@ -31,7 +32,17 @@ export default {
           rating: film.vote_average,
         }
       });
-      console.log(arrFilms)
+    },
+    getSeries(arrSeries) {
+      this.series = arrSeries.map(film => {
+        return {
+          id: film.id,
+          title: film.name,
+          originalTitle: film.original_name,
+          lang: film.original_language,
+          rating: film.vote_average,
+        }
+      });
     }
   },
 }

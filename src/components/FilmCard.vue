@@ -2,34 +2,34 @@
   <div class="card-container">
       <div class="title">
           <b>Title:</b>
-          <span>{{ film.title }}</span>
+          <span>{{ objCard.title }}</span>
       </div>
       <div class="og-title">
           <b>Original Title:</b>
-          <span>{{ film.originalTitle }}</span>
+          <span>{{ objCard.originalTitle }}</span>
       </div>
       <div class="vote">
           <b>Vote:</b>
-          <span>{{ film.rating }}</span>
+          <span>{{ objCard.rating }}</span>
       </div>
       <!-- <div class="lang">
           <b>Language:</b>
-          <span>{{ film.lang }}</span>
+          <span>{{ objCard.lang }}</span>
       </div> -->
-      <country-flag :country="film.lang" size='small'/>
+     <lang-flag :iso="objCard.lang" squared="false" />
   </div>
 </template>
 
 <script>
-import CountryFlag from 'vue-country-flag'
+import LangFlag from 'vue-lang-code-flags';
 
 export default {
     name: 'FilmCard',
     components: {
-        CountryFlag,
+        LangFlag,
     },
     props: {
-        film: Object,
+        objCard: Object,
     }
 }
 </script>

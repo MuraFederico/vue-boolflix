@@ -1,8 +1,11 @@
 <template>
   <main>
+      <h2>Films</h2>
       <film-card v-for="film in arrFilms" :key="film.id"
-      :film="film"
+      :objCard="film"
       />
+      <h2>Series</h2>
+      
   </main>
 </template>
 

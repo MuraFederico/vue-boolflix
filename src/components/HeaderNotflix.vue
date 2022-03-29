@@ -3,7 +3,7 @@
       <h1>BOOLFLIX</h1>
       <nav>
           <input v-model="strSearch" type="text" placeholder="Search by Name">
-          <button @click="getFilms">Cerca</button>
+          <button @click="getSearch">Cerca</button>
       </nav>
   </header>
 </template>
@@ -22,12 +22,17 @@ export default {
         formatStr(str) {
             return str.replaceAll(' ', '+')
         },
-        getFilms() {
+        getSearch() {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1814a5181699a3f32f15c63dc0665bd9&query=${this.formatStr(this.strSearch)}`)
             .then(res => {
                 // console.log(res.data.results);
                 this.$emit('emitFilms', res.data.results);
-            })
+            });
+            axios.get(`https://api.themoviedb.org/3/search/tv?api_key=1814a5181699a3f32f15c63dc0665bd9&query=${this.formatStr(this.strSearch)}`)
+            .then(res => {
+                console.log(res.data.results);
+                this.$emit('emitSeries', res.data.results);
+            });
         },
     },
 }
