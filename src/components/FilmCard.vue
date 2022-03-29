@@ -1,23 +1,22 @@
 <template>
   <div class="card-container">
-      <img :src="`https://image.tmdb.org/t/p/w342${objCard.poster}`" :alt="objCard.title">
-      <div class="title">
-          <b>Title:</b>
-          <span>{{ objCard.title }}</span>
-      </div>
-      <div class="og-title">
-          <b>Original Title:</b>
-          <span>{{ objCard.originalTitle }}</span>
-      </div>
-      <div class="vote">
-          <b>Vote:</b>
-          <span>{{ objCard.rating }}</span>
-      </div>
-      <!-- <div class="lang">
-          <b>Language:</b>
-          <span>{{ objCard.lang }}</span>
-      </div> -->
-     <lang-flag :iso="objCard.lang"/>
+		<img :src="`https://image.tmdb.org/t/p/w342${objCard.poster}`" :alt="objCard.title">
+		<div class="title">
+			<b>Title:</b>
+			<span>{{ objCard.title }}</span>
+		</div>
+		<div class="og-title">
+			<b>Original Title:</b>
+			<span>{{ objCard.originalTitle }}</span>
+		</div>
+		<!-- <div class="vote">
+			<b>Vote:</b>
+			<span>{{ objCard.rating }}</span>
+		</div> -->
+		<font-awesome-icon icon="fa-solid fa-star" v-for="n in 5" :key="n" :class="n <= objCard.rating ? 'yellow' : ''"/>
+		<div class="flag">
+		<lang-flag :iso="objCard.lang"/>
+		</div>
   </div>
 </template>
 
@@ -44,4 +43,7 @@ export default {
         border: 1px solid white;
         color: white;
     }
+	.yellow {
+		color: gold;
+	}
 </style>

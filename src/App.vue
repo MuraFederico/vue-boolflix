@@ -30,7 +30,7 @@ export default {
           title: film.title,
           originalTitle: film.original_title,
           lang: film.original_language,
-          rating: film.vote_average,
+          rating: Math.ceil(film.vote_average / 2),
         }
       });
     },
@@ -42,7 +42,7 @@ export default {
           title: serie.name,
           originalTitle: serie.original_name,
           lang: serie.original_language,
-          rating: serie.vote_average,
+          rating: Math.ceil(serie.vote_average / 2),
         }
       });
     }

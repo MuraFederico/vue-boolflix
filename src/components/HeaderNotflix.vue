@@ -25,7 +25,7 @@ export default {
         getSearch() {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1814a5181699a3f32f15c63dc0665bd9&query=${this.formatStr(this.strSearch)}`)
             .then(res => {
-                console.log(res.data.results);
+                // console.log(res.data.results);
                 this.$emit('emitFilms', res.data.results);
             });
             axios.get(`https://api.themoviedb.org/3/search/tv?api_key=1814a5181699a3f32f15c63dc0665bd9&query=${this.formatStr(this.strSearch)}`)
