@@ -12,16 +12,22 @@
           <b>Vote:</b>
           <span>{{ film.rating }}</span>
       </div>
-      <div class="lang">
+      <!-- <div class="lang">
           <b>Language:</b>
           <span>{{ film.lang }}</span>
-      </div>
+      </div> -->
+      <country-flag :country="film.lang" size='small'/>
   </div>
 </template>
 
 <script>
+import CountryFlag from 'vue-country-flag'
+
 export default {
     name: 'FilmCard',
+    components: {
+        CountryFlag,
+    },
     props: {
         film: Object,
     }
