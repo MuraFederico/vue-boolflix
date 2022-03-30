@@ -9,7 +9,7 @@
 					<b>Title:</b>
 					<span>{{ objCard.title }}</span>
 				</div>
-				<div class="og-title">
+				<div v-if="objCard.title != objCard.originalTitle" class="og-title">
 					<b>Original Title:</b>
 					<span>{{ objCard.originalTitle }}</span>
 				</div>

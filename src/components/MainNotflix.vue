@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div v-if="(arrFilms.length == 0 && btnSearchPressed == true)"><h2>Couldn't find any serie </h2></div>
+        <div v-if="arrFilms.length == 0 && btnSearchPressed"><h2>Couldn't find any serie </h2></div>
         <div  class="container" v-else>
             <h2>Series</h2>
             <div class="container-card">
