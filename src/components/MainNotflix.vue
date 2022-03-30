@@ -7,6 +7,7 @@
             <div class="container-card">
                 <film-card v-for="film in arrFilms" :key="film.id"
                 :objCard="film"
+                objType="film"
                 />
             </div>
         </div>
@@ -17,6 +18,7 @@
             <div class="container-card">
                 <film-card v-for="serie in arrSeries" :key="serie.id"
                 :objCard="serie"
+                objType="serie"
                 />
             </div>
         </div>
