@@ -1,24 +1,26 @@
 <template>
   <main>
-    <div class="container" v-if="arrFilms.length != 0">
-        <h2>Films</h2>
-        <div class="container-card">
-            <film-card v-for="film in arrFilms" :key="film.id"
-            :objCard="film"
-            />
+    <div v-if="btnSearchPressed">
+        <div v-if="arrFilms.length == 0 && btnSearchPressed"><h2>Couldn't find any film</h2></div>
+        <div class="container" v-else>
+            <h2>Films</h2>
+            <div class="container-card">
+                <film-card v-for="film in arrFilms" :key="film.id"
+                :objCard="film"
+                />
+            </div>
+        </div>
+
+        <div v-if="(arrFilms.length == 0 && btnSearchPressed == true)"><h2>Couldn't find any serie </h2></div>
+        <div  class="container" v-else>
+            <h2>Series</h2>
+            <div class="container-card">
+                <film-card v-for="serie in arrSeries" :key="serie.id"
+                :objCard="serie"
+                />
+            </div>
         </div>
     </div>
-    <!-- <div v-else><h2>Couldn't find any film</h2></div> -->
-    
-    <div  class="container" v-if="arrSeries.length != 0">
-        <h2>Series</h2>
-        <div class="container-card">
-            <film-card v-for="serie in arrSeries" :key="serie.id"
-            :objCard="serie"
-            />
-        </div>
-    </div>
-    <!-- <div v-else><h2>Couldn't find any serie </h2></div> -->
   </main>
 </template>
 
@@ -33,6 +35,7 @@ export default {
     props: {
         arrFilms: Array,
         arrSeries: Array,
+        btnSearchPressed: Boolean,
     }
 }
 </script>

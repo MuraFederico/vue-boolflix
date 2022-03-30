@@ -16,6 +16,7 @@ export default {
     data() {
         return {
             strSearch: '',
+            btnSearchPressed: false,
         };
     },
     methods: {
@@ -34,6 +35,8 @@ export default {
                     // console.log(res.data.results);
                     this.$emit('emitSeries', res.data.results);
                 });
+                this.btnSearchPressed = true;
+                this.$emit('emitClickState', this.btnSearchPressed);
                 this.strSearch = '';
             }
         },

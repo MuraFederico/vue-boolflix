@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-notflix @emitFilms="getFilms" @emitSeries="getSeries"/>
-    <main-notflix :arrFilms="films" :arrSeries="series"/>
+    <header-notflix @emitFilms="getFilms" @emitSeries="getSeries" @emitClickState="getPressState"/>
+    <main-notflix :arrFilms="films" :arrSeries="series" :btnSearchPressed="btnSearchPressed"/>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
     return {
       films: [],
       series: [],
+      btnSearchPressed: false,
     }
   },
   methods: {
@@ -47,6 +48,9 @@ export default {
           rating: Math.ceil(serie.vote_average / 2),
         }
       });
+    },
+    getPressState(state) {
+      this.btnSearchPressed = state;
     }
   },
 }
