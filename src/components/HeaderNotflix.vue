@@ -2,7 +2,7 @@
   <header>
       <h1>BOOLFLIX</h1>
       <nav>
-          <input v-model="strSearch" type="text" placeholder="Search by Name">
+          <input @keyup.enter="getSearch" v-model="strSearch" type="text" placeholder="Search by Name">
           <button @click="getSearch">Cerca</button>
       </nav>
   </header>
@@ -25,7 +25,7 @@ export default {
         getSearch() {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1814a5181699a3f32f15c63dc0665bd9&query=${this.formatStr(this.strSearch)}`)
             .then(res => {
-                // console.log(res.data.results);
+                console.log(res);
                 this.$emit('emitFilms', res.data.results);
             });
             axios.get(`https://api.themoviedb.org/3/search/tv?api_key=1814a5181699a3f32f15c63dc0665bd9&query=${this.formatStr(this.strSearch)}`)
@@ -33,6 +33,7 @@ export default {
                 // console.log(res.data.results);
                 this.$emit('emitSeries', res.data.results);
             });
+            this.strSearch = '';
         },
     },
 }
@@ -50,6 +51,11 @@ export default {
         input {
             padding: 1rem;
             margin-right: .5rem;
+            &:focus{
+                outline: none;
+                border:2px solid red;
+                border-radius: .3rem;
+            }
         }
         button {
             padding: 1rem;

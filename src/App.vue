@@ -29,6 +29,7 @@ export default {
           poster: film.poster_path,
           title: film.title,
           originalTitle: film.original_title,
+          overview: film.overview,
           lang: film.original_language,
           rating: Math.ceil(film.vote_average / 2),
         }
@@ -41,6 +42,7 @@ export default {
           poster: serie.poster_path,
           title: serie.name,
           originalTitle: serie.original_name,
+          overview: serie.overview,
           lang: serie.original_language,
           rating: Math.ceil(serie.vote_average / 2),
         }
