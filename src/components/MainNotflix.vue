@@ -90,7 +90,7 @@ export default {
         background-color: black;
     }
     .container {
-        width: 85%;
+        width: 80%;
         margin: 0 auto;
     }
     h2 {

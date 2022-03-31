@@ -97,7 +97,7 @@ export default {
     .card-container {
 		width: 360px;
 		height: 520px;
-        margin: 1.5rem;
+        margin: 1.5rem auto;
         color: white;
 		perspective: 1000px;
     }
