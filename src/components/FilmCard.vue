@@ -21,6 +21,10 @@
 					<b>Actors: </b>
 					<span v-for="actor in arrActors" :key="actor.cast_id">{{ actor.name }}, </span>
 				</div>
+				<div class="genre">
+					<b>Genres: </b>
+					<span v-for="genre in objCard.genres" :key="genre">{{ getGenre(genre) }}, </span>
+				</div>
 				<font-awesome-icon icon="fa-solid fa-star" v-for="n in 5" :key="n" :class="n <= objCard.rating ? 'yellow' : ''"/>
 				<div class="flag">
 					<lang-flag :iso="objCard.lang"/>
@@ -42,6 +46,9 @@ export default {
     props: {
         objCard: Object,
 		objType: String,
+		filteredArr: Array,
+		arrGenreFilms: Array,
+		arrGenreSeries: Array,
     },
 	data() {
 		return {
@@ -49,7 +56,24 @@ export default {
 		}
 	},
 	methods: {
-
+		getGenre(genre) {
+			let strGenre = '';
+			if (this.objType === "film") {
+				this.arrGenreFilms.forEach(element => {
+					if (element.id == genre) {
+						console.log(element.name)
+						strGenre = element.name
+					}
+				});
+			}else if(this.objType === "serie") {
+				this.arrGenreSeries.forEach(element => {
+					if (element.id == genre) {
+						strGenre = element.name
+					}
+				});
+			}
+			return strGenre
+		}
 	},
 	mounted() {
 		if (this.objType === "film") {

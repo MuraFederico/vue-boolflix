@@ -31,6 +31,7 @@ export default {
           title: film.title,
           originalTitle: film.original_title,
           overview: film.overview,
+          genres: film.genre_ids,
           lang: film.original_language,
           rating: Math.ceil(film.vote_average / 2),
         }
@@ -44,6 +45,7 @@ export default {
           title: serie.name,
           originalTitle: serie.original_name,
           overview: serie.overview,
+          genres: serie.genre_ids,
           lang: serie.original_language,
           rating: Math.ceil(serie.vote_average / 2),
         }
